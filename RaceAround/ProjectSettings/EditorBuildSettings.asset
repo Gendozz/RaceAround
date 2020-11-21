@@ -4,5 +4,23 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/StartScreen.unity
+    guid: d8a61b7089289d24c87e557f51384c91
+  - enabled: 1
+    path: Assets/Scenes/ChooseTrack.unity
+    guid: 7ec3669f3948de04285019d5b502ed2d
+  - enabled: 1
+    path: Assets/Scenes/FirstTrack.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/SecondTrack.unity
+    guid: fd9e909f581303e4994db5d0c3e0513d
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: d0b0fd3b4a5a27049915bfa5128e4ec3
+  - enabled: 1
+    path: Assets/Scenes/ControlShow.unity
+    guid: deacb07ab83269545907956461d0e96b
   m_configObjects: {}
