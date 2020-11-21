@@ -39,8 +39,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Settings.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StartMenuControl.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ChooseTrack.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SoundManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
       </list>
     </option>
   </component>
@@ -99,7 +99,7 @@
       <workItem from="1605802506625" duration="6314000" />
       <workItem from="1605859943055" duration="12647000" />
       <workItem from="1605962853076" duration="7187000" />
-      <workItem from="1605982558521" duration="2479000" />
+      <workItem from="1605982558521" duration="3218000" />
     </task>
     <servers />
   </component>
