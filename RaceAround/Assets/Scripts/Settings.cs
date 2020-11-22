@@ -6,8 +6,6 @@ using UnityEngine.Audio;
 
 public class Settings : MonoBehaviour
 {
-    private bool isFullScreen = false;
-    
     public AudioMixer am;
 
     private void Start()

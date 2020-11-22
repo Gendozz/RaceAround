@@ -8,6 +8,8 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
 {
+    private bool isControlEnable = false;
+    
     [SerializeField]
     private new Rigidbody rigidbody;
     
@@ -31,6 +33,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private float angularDrag = 3f;
+
+    [SerializeField] private float maxTorque = 1f;
     
     private Vector3 MoveVector;
 
@@ -46,15 +50,22 @@ public class PlayerController : MonoBehaviour
     private int charges = 0;
 
     [SerializeField] 
-    private int chargesToFire;
+    private int chargesToFire = 3;
 
     [SerializeField] private Text chargesText;
+
+    [SerializeField] 
+    private LapCounter lapCounter;
+
+    [SerializeField] 
+    private Text lapsText;
     
     private void Start()
     {
         rigidbody.mass = mass;
         rigidbody.drag = linearDrag;
         rigidbody.angularDrag = angularDrag;
+        rigidbody.maxAngularVelocity = maxTorque;
     }
 
     private void Update()
@@ -68,7 +79,9 @@ public class PlayerController : MonoBehaviour
             FireBomb();
         }
 
-        chargesText.text = $"Charges - {charges}";
+        chargesText.text = $"Charges : {charges}";
+        lapsText.text = $"Lap {lapCounter.laps}/10";
+
     }
 
     private void FixedUpdate()
@@ -108,6 +121,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("ChargePoint") && charges < chargesToFire)
         {
+            print("OnTriggerEnter in player controller with chargepoints");
             charges++;
         }
     }

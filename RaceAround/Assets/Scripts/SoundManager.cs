@@ -53,8 +53,6 @@ public class SoundManager : MonoBehaviour
     {
         _audioMixer.SetFloat("sfxVolume", sliderValue);
     }
-    
-    
 
     public void Play(AudioClip clip)
     {
