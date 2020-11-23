@@ -662,6 +662,19 @@ MonoBehaviour:
           m_StringArgument: Scenes/StartScreen
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4942519874020373434, guid: bfb50a949077a2844a3aa95ce0b3fca3,
+          type: 3}
+        m_MethodName: Play
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: c34cf2e1fefb08544a4f4629dcf4a143,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1061012963694164150
 GameObject:
   m_ObjectHideFlags: 0

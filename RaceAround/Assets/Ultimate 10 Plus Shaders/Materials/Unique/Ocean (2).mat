@@ -29,8 +29,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Cull: 0
-    - _Glossiness: 0.631
-    - _Metallic: 0.16
+    - _Glossiness: 0.31
+    - _Metallic: 0.96
     - _NormalStrength1: 0.81
     - _NormalStrength2: 0.8
     m_Colors:

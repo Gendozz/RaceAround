@@ -50,14 +50,14 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerInfoViewer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ActivateInTime.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ActivateCollider.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/WrongWayChecker.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ActivateBomb.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/LevelEnder.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/LevelController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ChargePoint1.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ChargePoint.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/WrongWayChecker.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
       </list>
     </option>
   </component>
@@ -121,7 +121,7 @@
       <workItem from="1605982558521" duration="3218000" />
       <workItem from="1605990142847" duration="4781000" />
       <workItem from="1606032546510" duration="34540000" />
-      <workItem from="1606121822599" duration="17464000" />
+      <workItem from="1606121822599" duration="23092000" />
     </task>
     <servers />
   </component>

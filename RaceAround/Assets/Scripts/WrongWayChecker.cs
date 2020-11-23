@@ -17,7 +17,7 @@ public class WrongWayChecker : MonoBehaviour
     private Vector3 currentRotation;
     
     [SerializeField]
-    private WaitForSeconds checkWrongWayDelay = new WaitForSeconds(.5f);
+    private WaitForSeconds checkWrongWayDelay = new WaitForSeconds(0.1f);
 
     public bool IsWrongWay { get; private set; }
 
@@ -41,13 +41,23 @@ public class WrongWayChecker : MonoBehaviour
         while (true)
         {
             pastRotation = center.eulerAngles;
-        
+            
             yield return checkWrongWayDelay;
         
             currentRotation = center.eulerAngles;
 
-            // добавить проверку на велосити.x больше нуля
-            IsWrongWay = currentRotation.y - pastRotation.y > 3f;
+            if (pastRotation.y >= 0 && currentRotation.y >= 0 || pastRotation.y <= 0 && currentRotation.y <= 0)
+            {
+                IsWrongWay = currentRotation.y - pastRotation.y > 10f;
+            }
+            else
+            {
+                IsWrongWay = true;
+            }
+
         }
     }
 }
+
+// past - положительный
+// current - отрицательный

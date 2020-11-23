@@ -76,6 +76,10 @@ public class PlayerController : MonoBehaviour
     private float axisSwap = 1f;
 
     [SerializeField] private ParticleSystem particleSystem;
+
+    //Sounds
+    
+    public AudioClip motorSFX;
     
     private void Start()
     {
@@ -89,7 +93,7 @@ public class PlayerController : MonoBehaviour
             vertical += "2";
             horizontal += "2";
             fire += "2";
-            chargePointTag += "2";
+            chargePointTag = "ChargePoint2";
         }
     }
 
@@ -98,7 +102,16 @@ public class PlayerController : MonoBehaviour
         if (isControlEnable)
         {
             MoveVector.z = Input.GetAxis(vertical);
-            if (MoveVector.z < 0) MoveVector.z = 0;
+            if (MoveVector.z > 0)
+            {
+                SoundManager.Instance.Play(motorSFX);
+            }
+
+            if (MoveVector.z < 0)
+            {
+                MoveVector.z = 0;
+            }
+            
 
             rotationDirection = Input.GetAxis(horizontal) * axisSwap;
 
@@ -148,8 +161,10 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag(chargePointTag) && charges < chargesToFire)
         {
+            print(chargePointTag);
             if (other.GetComponent<ChargePoint>().isActive)
             {
+                print(other.GetComponent<ChargePoint>().isActive);
                 charges++;
             }
         }

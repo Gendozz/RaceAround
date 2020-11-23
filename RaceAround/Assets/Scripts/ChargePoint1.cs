@@ -31,7 +31,7 @@ public class ChargePoint1 : MonoBehaviour
     {
         if (other.gameObject.GetHashCode() == player.gameObject.GetHashCode())
         {
-            isActive = false;
+            //isActive = false;
             thisMaterial.color = Color.red;
             Invoke(nameof(Activate), secondsToReactivate);
             

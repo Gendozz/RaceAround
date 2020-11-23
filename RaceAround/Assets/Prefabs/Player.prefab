@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 8889885910148043473}
   - component: {fileID: 8889885910148043485}
   m_Layer: 0
-  m_Name: Player1
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed9b55eb3fbace4e8d9ca110571d8a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isControlEnable: 0
   rigidbody: {fileID: 8889885910148043472}
   maxSpeed: 15
   force: 3000
@@ -140,13 +141,13 @@ MonoBehaviour:
   bomb: {fileID: 7698082247184507748, guid: 23ceaefeea9939849bebb9b2e3fc1c60, type: 3}
   charges: 0
   chargesToFire: 3
-  chargesText: {fileID: 0}
   lapCounter: {fileID: 0}
-  lapsText: {fileID: 0}
   controlSchema: 0
   bombEffectDelay: 5
   particleSystem: {fileID: 578252993234565088, guid: 0b3faaa98bf42e24686ee0c0b4fb843d,
     type: 3}
+  motorSFX: {fileID: 8300000, guid: 4b8c4ab2faee7b24da977c0bbe110c40, type: 3}
+  collideSFX: {fileID: 8300000, guid: a5ae0fef6d039134990fa1b94b2c13d2, type: 3}
 --- !u!65 &8889885910148043485
 BoxCollider:
   m_ObjectHideFlags: 0

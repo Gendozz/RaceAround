@@ -27,17 +27,23 @@ public class ChargePoint : MonoBehaviour
         indicatorMaterial = indicator.gameObject.GetComponent<MeshRenderer>().material;
         indicatorStartColor = indicatorMaterial.color;
         indicatorUnactiveColor = indicatorStartColor;
-        indicatorUnactiveColor.a = 0.1f;
+        indicatorUnactiveColor.a = 0.05f;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject== player.gameObject)
         {
-            isActive = false;
+            
             indicatorMaterial.color = indicatorUnactiveColor;
+            Invoke(nameof(Deactivate), 0.1f);
             Invoke(nameof(Reactivate), secondsToReactivate);
         }
+    }
+
+    private void Deactivate()
+    {
+        isActive = false;
     }
 
     private void Reactivate()
