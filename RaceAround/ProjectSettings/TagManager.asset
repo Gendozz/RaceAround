@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - ChargePoint
+  - Bomb
+  - ChargePoint2
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - Planet
   - AsteroidPath
   - Player
-  - 
+  - ChargePoint
   - 
   - 
   - 

@@ -8,7 +8,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
 {
-    private bool isControlEnable = false;
+    public bool isControlEnable = false;
     
     [SerializeField]
     private new Rigidbody rigidbody;
@@ -51,14 +51,31 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] 
     private int chargesToFire = 3;
-
-    [SerializeField] private Text chargesText;
-
+    
     [SerializeField] 
     private LapCounter lapCounter;
 
-    [SerializeField] 
-    private Text lapsText;
+    public enum ControlSchema : byte
+    {
+        Player1,
+        Player2
+    }
+
+    public ControlSchema controlSchema;
+    
+    private String vertical = "Vertical";
+
+    private String horizontal = "Horizontal";
+
+    private String fire = "Fire";
+
+    private String chargePointTag = "ChargePoint";
+
+    [SerializeField] private float bombEffectDelay = 3f;
+
+    private float axisSwap = 1f;
+
+    [SerializeField] private ParticleSystem particleSystem;
     
     private void Start()
     {
@@ -66,22 +83,30 @@ public class PlayerController : MonoBehaviour
         rigidbody.drag = linearDrag;
         rigidbody.angularDrag = angularDrag;
         rigidbody.maxAngularVelocity = maxTorque;
+
+        if (controlSchema == ControlSchema.Player2)
+        {
+            vertical += "2";
+            horizontal += "2";
+            fire += "2";
+            chargePointTag += "2";
+        }
     }
 
     private void Update()
     {
-        MoveVector.z = Input.GetAxis("Vertical"); // Change on float
-
-        rotationDirection = Input.GetAxis("Horizontal");
-
-        if (Input.GetKeyDown(KeyCode.Space) && charges == 3)
+        if (isControlEnable)
         {
-            FireBomb();
+            MoveVector.z = Input.GetAxis(vertical);
+            if (MoveVector.z < 0) MoveVector.z = 0;
+
+            rotationDirection = Input.GetAxis(horizontal) * axisSwap;
+
+            if (Input.GetAxis(fire) > 0 && charges == 3)
+            {
+                FireBomb();
+            }
         }
-
-        chargesText.text = $"Charges : {charges}";
-        lapsText.text = $"Lap {lapCounter.laps}/10";
-
     }
 
     private void FixedUpdate()
@@ -103,26 +128,44 @@ public class PlayerController : MonoBehaviour
         rigidbody.AddRelativeTorque(0, rotationDirection * torque, 0);
     }
 
-    private Vector3 GetDirection()
-    {
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");        
-
-        return new Vector3(x, 0f, z);
-    }
-
     private void FireBomb()
     {
         charges = 0;
         Instantiate(bomb, bombSpawnPosition.position, Quaternion.identity);
     }
 
+    public int GetLapPast()
+    {
+        return lapCounter.laps;
+    }
+
+    public int GetChargesAmount()
+    {
+        return charges;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("ChargePoint") && charges < chargesToFire)
+        if (other.CompareTag(chargePointTag) && charges < chargesToFire)
         {
-            print("OnTriggerEnter in player controller with chargepoints");
-            charges++;
+            if (other.GetComponent<ChargePoint>().isActive)
+            {
+                charges++;
+            }
         }
+
+        if (other.CompareTag("Bomb"))
+        {
+            Destroy(other.gameObject);
+            axisSwap = -1f;
+            particleSystem.Play();
+            Invoke("RestoreControl", bombEffectDelay);
+        }
+    }
+
+    private void RestoreControl()
+    {
+        particleSystem.Stop();
+        axisSwap = 1f;
     }
 }

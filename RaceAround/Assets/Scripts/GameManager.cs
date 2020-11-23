@@ -36,9 +36,6 @@ public class GameManager : MonoBehaviour
     
     public void LoadScene()
     {
-        print($"GameManager scene to load - {sceneToLoad}");
         SceneManager.LoadScene(sceneToLoad);
     }
-    
-    
 }

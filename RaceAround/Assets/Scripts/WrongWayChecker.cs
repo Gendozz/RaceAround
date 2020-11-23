@@ -19,10 +19,7 @@ public class WrongWayChecker : MonoBehaviour
     [SerializeField]
     private WaitForSeconds checkWrongWayDelay = new WaitForSeconds(.5f);
 
-    private bool isWrongWay;
-
-    [SerializeField] private Text wrongWayText;        // Place in another script
-
+    public bool IsWrongWay { get; private set; }
 
     private void Awake()
     {
@@ -37,15 +34,6 @@ public class WrongWayChecker : MonoBehaviour
     void Update()
     {
         center.LookAt(player);
-        
-        if (isWrongWay)
-        {
-            wrongWayText.text = "Wrong way";
-        }
-        else
-        {
-            wrongWayText.text = "";
-        }
     }
 
     IEnumerator CheckWrongWayCoroutine()
@@ -59,7 +47,7 @@ public class WrongWayChecker : MonoBehaviour
             currentRotation = center.eulerAngles;
 
             // добавить проверку на велосити.x больше нуля
-            isWrongWay = currentRotation.y - pastRotation.y > 3f;
+            IsWrongWay = currentRotation.y - pastRotation.y > 3f;
         }
     }
 }

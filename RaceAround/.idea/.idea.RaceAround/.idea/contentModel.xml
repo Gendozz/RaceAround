@@ -7,15 +7,19 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
+          <e p="ActivateBomb.cs" t="Include" />
           <e p="ApplyPushForce.cs" t="Include" />
           <e p="ChargePoint.cs" t="Include" />
+          <e p="ChargePoint1.cs" t="Include" />
           <e p="CheckPoint.cs" t="Include" />
           <e p="ChooseTrack.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
           <e p="InvertObjectNormals.cs" t="Include" />
           <e p="LapCounter.cs" t="Include" />
+          <e p="LevelController.cs" t="Include" />
           <e p="MoveByPath.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
+          <e p="PlayerInfoViewer.cs" t="Include" />
           <e p="RotateRigidbody.cs" t="Include" />
           <e p="Settings.cs" t="Include" />
           <e p="SoundManager.cs" t="Include" />
